@@ -12,15 +12,15 @@ public class Vacation {
         String typeOfGroup = scanner.nextLine();
         String dayOfWeek = scanner.nextLine();
 
-        double price = 0;
+        double price;
         double totalPrice = 0;
 
         switch (dayOfWeek) {
             case "Friday":
-                if (isEqualsStudents(typeOfGroup)) {
+                if (isStudents(typeOfGroup)) {
                     price = 8.45;
                     totalPrice = price * groupQuantity;
-                } else if (isEqualsBusiness(typeOfGroup)) {
+                } else if (isBusiness(typeOfGroup)) {
                     if (isMoreOrEqualsAHundred(groupQuantity)) {
                         groupQuantity -= 10;
                     }
@@ -33,10 +33,10 @@ public class Vacation {
                 break;
 
             case "Saturday":
-                if (isEqualsStudents(typeOfGroup)) {
+                if (isStudents(typeOfGroup)) {
                     price = 9.80;
                     totalPrice = price * groupQuantity;
-                } else if (isEqualsBusiness(typeOfGroup)) {
+                } else if (isBusiness(typeOfGroup)) {
                     if (isMoreOrEqualsAHundred(groupQuantity)) {
                         groupQuantity -= 10;
                     }
@@ -49,10 +49,10 @@ public class Vacation {
                 break;
 
             case "Sunday":
-                if (isEqualsStudents(typeOfGroup)) {
+                if (isStudents(typeOfGroup)) {
                     price = 10.46;
                     totalPrice = price * groupQuantity;
-                } else if (isEqualsBusiness(typeOfGroup)) {
+                } else if (isBusiness(typeOfGroup)) {
                     if (isMoreOrEqualsAHundred(groupQuantity)) {
                         groupQuantity -= 10;
                     }
@@ -65,10 +65,10 @@ public class Vacation {
                 break;
         }
 
-        if (isEqualsStudents(typeOfGroup) && isMoreOrEqualsThirty(groupQuantity)) {
+        if (isStudents(typeOfGroup) && isMoreOrEqualsThirty(groupQuantity)) {
             totalPrice = totalPrice - (totalPrice * 0.15);
         }
-        if (isEqualsRegular(typeOfGroup) && isBetweenTenAndTwenty(groupQuantity)) {
+        if (isRegular(typeOfGroup) && isBetweenTenAndTwenty(groupQuantity)) {
             totalPrice = totalPrice - (totalPrice * 0.05);
         }
 
@@ -83,12 +83,12 @@ public class Vacation {
         return num >= 10 && num <= 20;
     }
 
-    private static boolean isEqualsStudents(String type) {
+    private static boolean isStudents(String type) {
         String text = "Students";
         return type.equals(text);
     }
 
-    private static boolean isEqualsBusiness(String type) {
+    private static boolean isBusiness(String type) {
         String text = "Business";
         return type.equals(text);
     }
@@ -97,7 +97,7 @@ public class Vacation {
         return num >= 30;
     }
 
-    private static boolean isEqualsRegular(String type) {
+    private static boolean isRegular(String type) {
         String text = "Regular";
         return type.equals(text);
     }
