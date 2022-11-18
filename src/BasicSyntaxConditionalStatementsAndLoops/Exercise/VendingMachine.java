@@ -25,7 +25,7 @@ public class VendingMachine {
         while (!input.equals("End")) {
             if (input.equals("Nuts")) {
                 price = 2.0;
-                if (totalCoins >= price) {
+                if (isMoreOrEquals(totalCoins, price)) {
                     totalCoins -= price;
                     System.out.printf("Purchased %s%n", input);
                 } else {
@@ -34,7 +34,7 @@ public class VendingMachine {
 
             } else if (input.equals("Water")) {
                 price = 0.7;
-                if (totalCoins >= price) {
+                if (isMoreOrEquals(totalCoins, price)) {
                     totalCoins -= price;
                     System.out.printf("Purchased %s%n", input);
                 } else {
@@ -42,7 +42,7 @@ public class VendingMachine {
                 }
             } else if (input.equals("Crisps")) {
                 price = 1.5;
-                if (totalCoins >= price) {
+                if (isMoreOrEquals(totalCoins, price)) {
                     totalCoins -= price;
                     System.out.printf("Purchased %s%n", input);
                 } else {
@@ -50,7 +50,7 @@ public class VendingMachine {
                 }
             } else if (input.equals("Soda")) {
                 price = 0.8;
-                if (totalCoins >= price) {
+                if (isMoreOrEquals(totalCoins, price)) {
                     totalCoins -= price;
                     System.out.printf("Purchased %s%n", input);
                 } else {
@@ -58,7 +58,7 @@ public class VendingMachine {
                 }
             } else if (input.equals("Coke")) {
                 price = 1.0;
-                if (totalCoins >= price) {
+                if (isMoreOrEquals(totalCoins, price)) {
                     totalCoins -= price;
                     System.out.printf("Purchased %s%n", input);
                 } else {
@@ -72,6 +72,10 @@ public class VendingMachine {
 
         System.out.printf("Change: %.2f", totalCoins);
 
+    }
 
+
+    private static boolean isMoreOrEquals(double num1, double num2) {
+        return num1 >= num2;
     }
 }
