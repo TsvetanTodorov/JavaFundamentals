@@ -9,10 +9,18 @@ public class LowerOrUpper {
 
         char symbol = scanner.nextLine().charAt(0);
 
-        if (symbol >= 65 && symbol <= 90){ //from ASCII TABLE
-            System.out.println("upper-case");
-        }else{
+//        if (symbol >= 65 && symbol <= 90){ //from ASCII TABLE
+//            System.out.println("upper-case");
+//        }else{
+//            System.out.println("lower-case");
+//        }
+
+
+        if(Character.isLowerCase(symbol)){
             System.out.println("lower-case");
+        }else{
+            System.out.println("upper-case");
         }
+
     }
 }
