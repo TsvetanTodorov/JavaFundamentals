@@ -15,31 +15,41 @@ public class FromLeftToTheRight {
             String[] arrayString = currentInput.split(" ");
             String firstNumberAsString = arrayString[0];
             String secondNumberAsString = arrayString[1];
-            long firstNumberAsInteger = Long.parseLong(firstNumberAsString);
-            long secondNumberAsInteger = Long.parseLong(secondNumberAsString);
-            int sum = 0;
+            long firstNumberAsLong = Long.parseLong(firstNumberAsString);
+            long secondNumberAsLong = Long.parseLong(secondNumberAsString);
+            int sum;
 
-            if (firstNumberAsInteger > secondNumberAsInteger) {
-                String[] firstNumberAsArray = firstNumberAsString.split("");
-                for (String currentNumber : firstNumberAsArray) {
-                    if (currentNumber.equals("-")) {
-                        continue;
-                    }
-                    long currentNumberAsInteger = Long.parseLong(currentNumber);
-                    sum += currentNumberAsInteger;
-                }
+            if (isBiggerThan(firstNumberAsLong, secondNumberAsLong)) {
+                sum = calculateSum(firstNumberAsString);
             } else {
-                String[] secondNumberAsArray = secondNumberAsString.split("");
-                for (String currentNumber : secondNumberAsArray) {
-                    if (currentNumber.equals("-")) {
-                        continue;
-                    }
-                    long currentNumberAsInteger = Long.parseLong(currentNumber);
-                    sum += currentNumberAsInteger;
-
-                }
+                sum = calculateSum(secondNumberAsString);
             }
             System.out.println(sum);
         }
+
     }
+
+    private static boolean isBiggerThan(long firstNum, long secondNum) {
+        return firstNum > secondNum;
+    }
+
+    private static boolean areEquals(String currentNumber) {
+        String character = "-";
+        return currentNumber.equals(character);
+    }
+
+    private static int calculateSum(String numberAsString) {
+        String[] firstNumberAsArray = numberAsString.split("");
+        int sum = 0;
+        for (String currentNumber : firstNumberAsArray) {
+            if (areEquals(currentNumber)) {
+                continue;
+            }
+            long currentNumberAsInteger = Long.parseLong(currentNumber);
+            sum += currentNumberAsInteger;
+        }
+        return sum;
+    }
+
+
 }
