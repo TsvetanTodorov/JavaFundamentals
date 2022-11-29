@@ -17,7 +17,7 @@ public class EvenAndOddSubtraction {
         int oddSum = 0;
 
         for (int currentNumber : numbers) {
-            if (currentNumber % 2 == 0) {
+            if (isEven(currentNumber)) {
                 evenSum += currentNumber;
             } else {
                 oddSum += currentNumber;
@@ -25,5 +25,10 @@ public class EvenAndOddSubtraction {
         }
         int diff = evenSum - oddSum;
         System.out.println(diff);
+    }
+
+
+    private static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }
