@@ -21,10 +21,14 @@ public class MagicSum {
 
             for (int i = index + 1; i < numbers.length; i++) {
                 int result = currentNumber + numbers[i];
-                if (result == givenNumber) {
+                if (areEqual(result, givenNumber)) {
                     System.out.println(currentNumber + " " + numbers[i]);
                 }
             }
         }
+    }
+
+    private static boolean areEqual(int result, int givenNumber) {
+        return result == givenNumber;
     }
 }
