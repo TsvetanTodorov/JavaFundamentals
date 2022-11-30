@@ -23,9 +23,7 @@ public class EncryptSortAndPrintArray {
             for (int j = 0; j <= array.length - 1; j++) {
                 char currentChar = array[j];
 
-                if (currentChar == 'a' || currentChar == 'A' || currentChar == 'e' || currentChar == 'E' ||
-                        currentChar == 'i' || currentChar == 'I' || currentChar == 'o' || currentChar == 'O' ||
-                        currentChar == 'u' || currentChar == 'U') {
+                if (isVowel(currentChar)) {
                     multipleVowel = currentChar * array.length;
                     totalMultipleSum += multipleVowel;
                 } else {
@@ -45,6 +43,11 @@ public class EncryptSortAndPrintArray {
         for (int currentNum : listOfResult) {
             System.out.println(currentNum);
         }
+    }
+
+    private static boolean isVowel(char currentChar) {
+        Character[] vowels = {'a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'};
+        return Arrays.asList(vowels).contains(currentChar);
     }
 }
 
