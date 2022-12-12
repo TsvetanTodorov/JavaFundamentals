@@ -18,7 +18,9 @@ public class ListManipulationBasics {
         String input = scanner.nextLine();
 
         while (!input.equals("end")) {
-            List<String> commandLine = Arrays.stream(input.split(" ")).collect(Collectors.toList());
+            List<String> commandLine = Arrays
+                    .stream(input.split(" "))
+                    .collect(Collectors.toList());
 
             String command = commandLine.get(0);
 
