@@ -32,14 +32,14 @@ public class ListManipulationAdvanced {
                     int number = Integer.parseInt(commandLine.get(1));
                     for (int i = 0; i <= numList.size() - 1; i++) {
                         int currentNumber = numList.get(i);
-                        if (number == currentNumber) {
+                        if (areEqual(number, currentNumber)) {
                             isContain = true;
-                            System.out.println("Yes");
+                            printYes();
 
                         }
                     }
                     if (!isContain) {
-                        System.out.println("No such number");
+                        printNoSuchNumber();
                     }
 
                     break;
@@ -50,11 +50,11 @@ public class ListManipulationAdvanced {
                         List<Integer> evenNumbers = new ArrayList<>();
                         for (int i = 0; i <= numList.size() - 1; i++) {
                             int currentNumber = numList.get(i);
-                            if (currentNumber % 2 == 0) {
+                            if (isEven(currentNumber)) {
                                 evenNumbers.add(currentNumber);
                             }
                         }
-                        System.out.println(evenNumbers.toString().replaceAll("[\\[\\],]", ""));
+                        print(evenNumbers);
                     } else {
                         List<Integer> oddNumbers = new ArrayList<>();
                         for (int i = 0; i <= numList.size() - 1; i++) {
@@ -63,7 +63,7 @@ public class ListManipulationAdvanced {
                                 oddNumbers.add(currentNumber);
                             }
                         }
-                        System.out.println(oddNumbers.toString().replaceAll("[\\[\\],]", ""));
+                        print(oddNumbers);
                     }
                     break;
                 case "Get":
@@ -86,7 +86,7 @@ public class ListManipulationAdvanced {
                                     checkedNumbers.add(currentNumber);
                                 }
                             }
-                            System.out.println(checkedNumbers.toString().replaceAll("[\\[\\],]", ""));
+                            print(checkedNumbers);
                             break;
                         case "<":
                             for (int i = 0; i <= numList.size() - 1; i++) {
@@ -95,7 +95,7 @@ public class ListManipulationAdvanced {
                                     checkedNumbers.add(currentNumber);
                                 }
                             }
-                            System.out.println(checkedNumbers.toString().replaceAll("[\\[\\],]", ""));
+                            print(checkedNumbers);
                             break;
                         case ">=":
                             for (int i = 0; i <= numList.size() - 1; i++) {
@@ -104,7 +104,7 @@ public class ListManipulationAdvanced {
                                     checkedNumbers.add(currentNumber);
                                 }
                             }
-                            System.out.println(checkedNumbers.toString().replaceAll("[\\[\\],]", ""));
+                           print(checkedNumbers);
                             break;
                         case "<=":
                             for (int i = 0; i <= numList.size() - 1; i++) {
@@ -113,7 +113,7 @@ public class ListManipulationAdvanced {
                                     checkedNumbers.add(currentNumber);
                                 }
                             }
-                            System.out.println(checkedNumbers.toString().replaceAll("[\\[\\],]", ""));
+                           print(checkedNumbers);
                             break;
                     }
                     break;
@@ -121,4 +121,26 @@ public class ListManipulationAdvanced {
             input = scanner.nextLine();
         }
     }
+
+    private static boolean areEqual(int number, int currentNumber) {
+        return number == currentNumber;
+    }
+
+    private static void printYes() {
+        System.out.println("Yes");
+    }
+
+    private static void printNoSuchNumber() {
+        System.out.println("No such number");
+    }
+
+    private static boolean isEven(int currentNumber) {
+        return currentNumber % 2 == 0;
+    }
+
+    private static void print(List<Integer> numbers) {
+        System.out.println(numbers.toString().replaceAll("[\\[\\],]", ""));
+    }
+
+
 }
