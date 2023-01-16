@@ -11,9 +11,7 @@ public class AppendArrays {
         String[] arrays = scanner.nextLine().split("\\|");
         List<String[]> listOfArrays = Arrays.stream(arrays).map(array -> array.split("\\s+")).collect(Collectors.toList());
         Collections.reverse(listOfArrays);
-        listOfArrays.forEach(a -> {
-            Arrays.stream(a).forEach(el -> System.out.print(!el.equals("") ? el + " " : ""));
-        });
+        listOfArrays.forEach(a -> Arrays.stream(a).forEach(el -> System.out.print(!el.equals("") ? el + " " : "")));
     }
 
 }
