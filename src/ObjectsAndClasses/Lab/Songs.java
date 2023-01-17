@@ -6,30 +6,23 @@ import java.util.Scanner;
 
 public class Songs {
 
-
     static class Song {
-        String typeList;
+        String listType;
         String name;
-        String time;
+        String duration;
 
-        public void setTypeList(String typeList) {
-            this.typeList = typeList;
-        }
-
-        public String getTypeList() {
-            return this.typeList;
-        }
-
-        public void setName(String name) {
+        public Song(String listType, String name, String duration) {
+            this.listType = listType;
             this.name = name;
+            this.duration = duration;
+        }
+
+        public String getListType() {
+            return this.listType;
         }
 
         public String getName() {
             return this.name;
-        }
-
-        public void setTime(String time) {
-            this.time = time;
         }
 
     }
@@ -50,25 +43,29 @@ public class Songs {
             String songName = data[1];
             String songDuration = data[2];
 
-            Song currentSong = new Song();
-            currentSong.setTypeList(songType);
-            currentSong.setName(songName);
-            currentSong.setTime(songDuration);
-
+            Song currentSong = new Song(songType, songName, songDuration);
             songsList.add(currentSong);
 
         }
         String command = scanner.nextLine();
 
         if (command.equals("all")) {
-            for (Song item : songsList) {
-                System.out.println(item.getName());
-            }
+            printAllSongs(songsList);
         } else {
-            for (Song item : songsList) {
-                if (item.getTypeList().equals(command)) {
-                    System.out.println(item.getName());
-                }
+            printAllSongsByListType(songsList, command);
+        }
+
+    }
+    public static void printAllSongs(List<Song> songsList) {
+        for (Song currentSong : songsList) {
+            System.out.println(currentSong.getName());
+        }
+    }
+
+    public static void printAllSongsByListType(List<Song> songsList, String listType) {
+        for (Song currentSong : songsList) {
+            if (currentSong.getListType().equals(listType)) {
+                System.out.println(currentSong.getName());
             }
         }
     }
