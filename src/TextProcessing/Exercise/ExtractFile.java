@@ -1,4 +1,4 @@
-package TextProcessing;
+package TextProcessing.Exercise;
 
 import java.util.Scanner;
 
