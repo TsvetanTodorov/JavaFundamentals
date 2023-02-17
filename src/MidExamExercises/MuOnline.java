@@ -50,11 +50,10 @@ public class MuOnline {
                     int monsterAttack = Integer.parseInt(currentRoom[1]);
                     health -= monsterAttack;
 
+                    roomsCounter++;
                     if (health > 0) {
-                        roomsCounter++;
                         System.out.printf("You slayed %s.\n", command);
                     } else {
-                        roomsCounter++;
                         System.out.printf("You died! Killed by %s.\n", command);
                         System.out.printf("Best room: %d", roomsCounter);
                         return;
