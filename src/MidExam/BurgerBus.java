@@ -25,6 +25,7 @@ public class BurgerBus {
                 expenses = expenses + (expenses * 0.5);
             }
 
+
             totalIncome = income - expenses;
             incomeAfterTrip += totalIncome;
 
